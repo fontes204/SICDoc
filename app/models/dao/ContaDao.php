@@ -54,6 +54,7 @@ class ContaDao extends Model
                     Session::set('logado',1);
                     Session::set('user', $user->_nome.' '.$user->_apelido);
                     Session::set('id_user', $user->_id);
+                    Session::set('foto', $user->_foto);
                     Session::set('type', $area->_sigla);
                     Session::set('area', $area->_nome);
                     return $area->_sigla;

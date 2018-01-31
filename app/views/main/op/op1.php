@@ -13,7 +13,7 @@
                 <!-- menu profile quick info -->
                 <div class="profile clearfix">
                     <div class="profile_pic">
-                        <img src="<?php echo URL?>public/images/img.jpg" alt="..." class="img-circle profile_img">
+                        <img src="<?php echo URL?>public/images/perfil/<?php echo $foto;?>" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>Bem-vindo,</span>
@@ -34,7 +34,7 @@
                             </li>
                             <li><a><i class="fa fa-file-archive-o"></i> Processo <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="form.html">Criar Processo</a></li>
+                                    <li><a href="<?php echo URL.$att->getContoller().'/novo/'.base64_encode('processo');?>">Criar Processo</a></li>
                                     <li><a href="form_advanced.html">Editar Processo</a></li>
                                     <li><a href="form_validation.html">Procurar Processo</a></li>
                                 </ul>

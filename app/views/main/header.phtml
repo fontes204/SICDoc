@@ -10,7 +10,9 @@
     }
     $id = Session::get('id_user');
     $nome = Session::get('user');
+    $foto = Session::get('foto');
     $att=new Atributo();
+    $user = new contaDao();
 ?>
 <!DOCTYPE html>
 <html lang="pt-pt">

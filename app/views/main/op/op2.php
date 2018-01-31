@@ -13,11 +13,11 @@
                 <!-- menu profile quick info -->
                 <div class="profile clearfix">
                     <div class="profile_pic">
-                        <img src="<?php echo URL?>public/images/img.jpg" alt="..." class="img-circle profile_img">
+                        <img src="<?php echo URL?>public/images/perfil/<?php echo $foto;?>" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>Bem-vindo,</span>
-                        <h2><?php echo $nome?></h2>
+                        <h2><?php echo $nome;?></h2>
                     </div>
                     <div class="clearfix"></div>
                 </div>

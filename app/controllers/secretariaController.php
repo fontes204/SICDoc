@@ -17,4 +17,11 @@ class SecretariaController extends Controller
     {
         $this->view->render(SCT,1);
     }
+
+    public function novo($t)
+    {
+        $paramentro = base64_decode($t);
+        if(isset($this->view))
+            $this->view->render(SCT,$paramentro.'/criar');
+    }
 }
