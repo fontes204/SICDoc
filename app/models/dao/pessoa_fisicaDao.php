@@ -16,8 +16,8 @@ class Pessoa_FisicaDao extends Model
     public function criarPessoaFisica(Pessoa_Fisica $pessoa_fisica)
     {
         if($this->insert($pessoa_fisica->parametro()))
-            echo 1;
+            return true;
         else
-            echo 0;
+            return false;
     }
 }

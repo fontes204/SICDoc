@@ -12,7 +12,6 @@ class Pessoa_Fisica extends Atributo
     protected $_id_vendedor;
     protected $_n_bi;
     protected $_bi;
-    protected $_caminho_bi;
 
     /**
      * @return mixed
@@ -76,21 +75,5 @@ class Pessoa_Fisica extends Atributo
     public function setBi($bi)
     {
         $this->_bi = $bi;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCaminhoBi()
-    {
-        return $this->_caminho_bi;
-    }
-
-    /**
-     * @param mixed $caminho_bi
-     */
-    public function setCaminhoBi($caminho_bi)
-    {
-        $this->_caminho_bi = $caminho_bi;
     }
 }

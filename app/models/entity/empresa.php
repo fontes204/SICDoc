@@ -13,7 +13,7 @@ class Empresa extends Atributo
     protected $_nome_representate;
     protected $_n_bi_representate;
     protected $_bi_representate;
-    protected $_caminho_bi_representate;
+    protected $_certidao_comercial;
 
     /**
      * @return mixed
@@ -98,16 +98,16 @@ class Empresa extends Atributo
     /**
      * @return mixed
      */
-    public function getCaminhoBiRepresentate()
+    public function getCertidaoComercia()
     {
-        return $this->_caminho_bi_representate;
+        return $this->_certidao_comercial;
     }
 
     /**
-     * @param mixed $caminho_bi_representate
+     * @param mixed $certidao_comercia
      */
-    public function setCaminhoBiRepresentate($caminho_bi_representate)
+    public function setCertidaoComercia($certidao_comercial)
     {
-        $this->_caminho_bi_representate = $caminho_bi_representate;
+        $this->_certidao_comercial = $certidao_comercial;
     }
 }

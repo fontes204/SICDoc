@@ -16,8 +16,31 @@ class ImovelDao extends Model
     public function criarImovel(Imovel $imovel)
     {
         if($this->insert($imovel->parametro()))
-            echo 1;
+            return true;
         else
-            echo 0;
+            return false;
+    }
+
+    public function criarNumProcesso($condominio)
+    {
+        $letra = '';
+        $divisao = explode(" ",$condominio);
+        if(count($divisao) > 1){
+            for ($i=0; $i<count($divisao); $i++){
+                $letra .= substr($divisao[$i], 0,1);
+            }
+            $letra = strtoupper($letra);
+        } else{
+            $letra .= substr($condominio, 0,1);
+            $letra .= substr($condominio, -1);
+            $letra = strtoupper($letra);
+        }
+        $rtnletra = '%'.$letra.'%';
+        $rtn = $this->ultimoNumProcesso($rtnletra)->fetchAll();
+
+        $letra .= '0';
+        $letra .= count($rtn) + 1;
+
+        return $letra;
     }
 }

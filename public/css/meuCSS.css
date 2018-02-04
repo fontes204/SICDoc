@@ -1,0 +1,15 @@
+.todolist,.top-menu .nav .sub-menu,.widget-chart-sidebar .chart-legend{list-style-type:none}
+.todolist{margin:0;padding:0}
+.todolist>li>a{display:block;color:#333}
+.todolist>li>a:focus,.todolist>li>a:hover{background:#fafafa;text-decoration:none}
+.todolist>li>a:focus .todolist-input i:before,.todolist>li>a:hover .todolist-input i:before{content:'\f14a';opacity:.4;filter:alpha(opacity=40);color:#2d353c}
+.todolist>li.active>a .todolist-input i:before,.todolist>li.active>a:focus .todolist-input i:before,.todolist>li.active>a:hover .todolist-input i:before{content:'\f14a';color:#00acac;opacity:1;filter:alpha(opacity=100)}
+.todolist>li.active>a .todolist-title{text-decoration:line-through}
+.todolist>li{border-bottom:1px solid #ddd}
+.todolist-input i{display:block;width:14px;text-align:center}
+.todolist-input,.todolist-title{display:table-cell;padding:10px}
+.todolist-title{padding-right:15px}
+.todolist-input{text-align:center;font-size:14px;border-right:1px solid #ddd;padding-left:15px}
+
+.profile-image{height:490px;line-height:175px;text-align:center;font-size:72px;margin-bottom:10px;border: none;overflow:hidden;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}
+.profile-image img{display:block;max-width:100%;max-height: 300%}

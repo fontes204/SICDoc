@@ -9,6 +9,7 @@
 class Imovel extends Atributo
 {
     protected $_id;
+    protected $_n_processo;
     protected $_nome_condominio;
     protected $_tipo_imovel;
     protected $_n_descricao_predio;
@@ -17,6 +18,23 @@ class Imovel extends Atributo
     protected $_id_cliente;
     protected $_id_vendedor;
     protected $_id_estado;
+    protected $_data_criacao;
+
+    /**
+     * @return mixed
+     */
+    public function getNProcesso()
+    {
+        return $this->_n_processo;
+    }
+
+    /**
+     * @param mixed $n_processo
+     */
+    public function setNProcesso($n_processo)
+    {
+        $this->_n_processo = $n_processo;
+    }
 
     /**
      * @return mixed
@@ -162,4 +180,19 @@ class Imovel extends Atributo
         $this->_id_estado = $id_estado;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getDataCriacao()
+    {
+        return $this->_data_criacao;
+    }
+
+    /**
+     * @param mixed $data_criacao
+     */
+    public function setDataCriacao($data_criacao)
+    {
+        $this->_data_criacao = $data_criacao;
+    }
 }

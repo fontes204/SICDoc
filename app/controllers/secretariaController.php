@@ -20,8 +20,29 @@ class SecretariaController extends Controller
 
     public function novo($t)
     {
-        $paramentro = base64_decode($t);
+        $parametro = base64_decode($t);
         if(isset($this->view))
-            $this->view->render(SCT,$paramentro.'/criar');
+            $this->view->render(SCT,$parametro.'/criar');
+    }
+
+    public function listarTodos($t)
+    {
+        $parametro = base64_decode($t);
+        if(isset($this->view))
+            $this->view->render(SCT,'listar/'.$parametro);
+    }
+
+    public function visualizar($t)
+    {
+       // $parametro = base64_decode($t);
+        if(isset($this->view))
+            $this->view->render(SCT,'visualizar');
+    }
+
+    public function perfil($t)
+    {
+       // $parametro = base64_decode($t);
+        if(isset($this->view))
+            $this->view->render(SCT,'perfil');
     }
 }

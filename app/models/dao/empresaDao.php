@@ -16,8 +16,8 @@ class EmpresaDao extends Model
     public function criarEmpresa(Empresa $empresa)
     {
         if($this->insert($empresa->parametro()))
-            echo 1;
+            return true;
         else
-            echo 0;
+            return false;
     }
 }

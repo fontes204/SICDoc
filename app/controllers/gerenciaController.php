@@ -38,4 +38,18 @@ class GerenciaController extends Controller
         if(isset($this->view))
             $this->view->render(GRC,$paramentro.'/criar');
     }
+
+    public function visualizar($t)
+    {
+       // $parametro = base64_decode($t);
+        if(isset($this->view))
+            $this->view->render(SCT,'visualizar');
+    }
+
+    public function perfil($t)
+    {
+        // $parametro = base64_decode($t);
+        if (isset($this->view))
+            $this->view->render(SCT, 'perfil');
+    }
 }

@@ -1,4 +1,12 @@
+<?php
+$att = new Atributo();
+$imovel = new Imovel();
+$imovelDao = new ImovelDao();
+$rtnImovel = $imovelDao->listarPorEstado(3);
 
+$clienteDao = new ClienteDao(); //var_dump($rtnImovel[$i]->_id_cliente)
+
+?>
 <!-- page content -->
 <div class="right_col" role="main">
     <div class="">
@@ -24,9 +32,9 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Nome</th>
+                                    <th>Nome Comprador</th>
                                     <th>Nº do Processo</th>
-                                    <th>Estado</th>
+                                    <th>Tipo de Imóvel</th>
                                     <th>Data de Criação</th>
                                     <th>Acção</th>
                                 </tr>
@@ -34,15 +42,21 @@
 
 
                                 <tbody>
-                                <?php for($i=0;$i<13;$i++):?>
-                                <tr>
-                                    <td><?php echo $i+1;?></td>
-                                    <td>Emanuel Abel</td>
-                                    <td><?php echo '0002'.$i;?></td>
-                                    <td>Em andamento</td>
-                                    <td>2011/04/25</td>
-                                    <td><a href="#">Saber mais <i class="fa fa-eye right"></i></a></td>
-                                </tr>
+                                <?php for($i=0;$i<count($rtnImovel);$i++):
+                                    $nome = $clienteDao->listarPorId('cliente',$rtnImovel[$i]->_id_cliente);
+                                    $n_processo = $rtnImovel[$i]->_n_processo;
+                                    $tipoImovel = $rtnImovel[$i]->_tipo_imovel;
+                                    $data = $rtnImovel[$i]->_data_criacao;
+                                    $id = base64_encode($rtnImovel[$i]->_id_cliente);
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $i+1;?></td>
+                                        <td><?php echo $nome->_nome;?></td>
+                                        <td><?php echo $n_processo;?></td>
+                                        <td><?php echo $tipoImovel;?></td>
+                                        <td><?php echo $data;?></td>
+                                        <td><a href="<?php echo URL.$att->getContoller().'/visualizar/'.$id;?>">Ver <i class="fa fa-eye right"></i></a></td>
+                                    </tr>
                                 <?php endfor;?>
 
                                 </tbody>

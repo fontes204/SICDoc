@@ -16,8 +16,8 @@ class LocalizacaoDao extends Model
     public function criarLocalizacao(Localizacao $localizacao)
     {
         if($this->insert($localizacao->parametro()))
-            echo 1;
+            return true;
         else
-            echo 0;
+            return false;
     }
 }

@@ -16,8 +16,8 @@ class VendedorDao extends Model
     public function criarVendedor(Vendedor $vendedor)
     {
         if($this->insert($vendedor->parametro()))
-            echo 1;
+            return true;
         else
-            echo 0;
+            return false;
     }
 }

@@ -4,7 +4,7 @@ class View  extends Controller {
     #code
 
     function __construct() {
-        //echo"Isto e uma view";
+      //  parent::__construct();
     }
 
     public function render($name,$include=null) {

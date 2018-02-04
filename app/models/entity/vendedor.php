@@ -12,7 +12,9 @@ class Vendedor extends Atributo
     protected $_nome;
     protected $_n_nif;
     protected $_nif;
-    protected $_caminho_nif;
+    protected $_contrato;
+    protected $_termo_quitacao;
+    protected $_certidao_predial;
 
     /**
      * @return mixed
@@ -81,16 +83,48 @@ class Vendedor extends Atributo
     /**
      * @return mixed
      */
-    public function getCaminhoNif()
+    public function getContrato()
     {
-        return $this->_caminho_nif;
+        return $this->_contrato;
     }
 
     /**
-     * @param mixed $caminho_nif
+     * @param mixed $contrato
      */
-    public function setCaminhoNif($caminho_nif)
+    public function setContrato($contrato)
     {
-        $this->_caminho_nif = $caminho_nif;
+        $this->_contrato = $contrato;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTermoQuitacao()
+    {
+        return $this->_termo_quitacao;
+    }
+
+    /**
+     * @param mixed $termo_quitacao
+     */
+    public function setTermoQuitacao($termo_quitacao)
+    {
+        $this->_termo_quitacao = $termo_quitacao;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCertidaoPredial()
+    {
+        return $this->_certidao_predial;
+    }
+
+    /**
+     * @param mixed $certidao_predial
+     */
+    public function setCertidaoPredial($certidao_predial)
+    {
+        $this->_certidao_predial = $certidao_predial;
     }
 }

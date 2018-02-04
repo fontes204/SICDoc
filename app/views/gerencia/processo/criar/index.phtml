@@ -69,297 +69,223 @@
                                 </li>
                             </ul>
                             <form class="form-horizontal form-label-left form-criar-processo" action="<?php echo URL?>processo/criar_processo">
-                            <div id="step-1">
-                                <!-- begin row -->
-                                <div class="row">
-                                    <!-- begin col-6 -->
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nome </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="text" id="nome" required="required" name="nome" class="form-control col-md-7 col-xs-12">
+                                <div id="step-1">
+                                    <!-- begin row -->
+                                    <div class="row">
+                                        <!-- begin col-6 -->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nome </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <input type="text" id="nome" required="required" name="nome" class="form-control col-md-7 col-xs-12">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Genero </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <div id="gender" class="btn-group" data-toggle="buttons">
-                                                    <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                                        <input type="radio" name="genero" value="m"> &nbsp; Masculino &nbsp;
-                                                    </label>
-                                                    <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                                        <input type="radio" name="genero" value="f"> Femenino
-                                                    </label>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Genero </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <div id="gender" class="btn-group" data-toggle="buttons">
+                                                        <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                            <input type="radio" name="genero" value="m"> &nbsp; Masculino &nbsp;
+                                                        </label>
+                                                        <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                            <input type="radio" name="genero" value="f"> Femenino
+                                                        </label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- end col-6
+                                        <!-- end col-6
 
-                                    <!-- begin col-6 -->
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Nº B.I </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="text" id="last-name" name="n-bi" required="required" class="form-control col-md-7 col-xs-12">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">NIF </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input id="middle-name" type="text" name="n-nif" required="required" class="form-control col-md-7 col-xs-12">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end row -->
-                            </div>
-                            <div id="step-2">
-                                <!-- begin row -->
-                                <div class="row">
-                                    <!-- begin col-6 -->
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nome do Condomínio </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="text" id="nome" required="required" name="nome-condominio" class="form-control col-md-7 col-xs-12">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Tipo de Imóvel </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <select id="id-tipo-imovel" class="select2_single form-control text-center" name="tipo-imovel" tabindex="-1">
-                                                    <option VALUE="Nenhum"> --- Selecione --- </option>
-                                                    <option value="Habitação">Habitação</option>
-                                                    <option value="Loja">Loja</option>
-                                                    <option value="Terreno">Terreno</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end col-6
-
-                                    <!-- begin col-6 -->
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Nº Descrição do Prédio </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input id="middle-name" type="text" name="n-descricao-predio" required="required" class="form-control col-md-7 col-xs-12">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Valor do Imóvel </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input id="middle-name" type="text" name="valor-imovel" required="required" class="form-control col-md-7 col-xs-12">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end row -->
-                            </div>
-                            <div id="step-3">
-                                <!-- begin row -->
-                                <div class="row">
-                                    <!-- begin col-6 -->
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nº Condomínio </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="text" id="nome" required="required" name="n-condominio" class="form-control col-md-7 col-xs-12">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Quadra </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="text" id="last-name" name="quadra" required="required" class="form-control col-md-7 col-xs-12">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Lote </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input id="middle-name" type="text" name="lote" required="required" class="form-control col-md-7 col-xs-12">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Metragem do Lote </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input id="middle-name" type="text" name="metragem-lote" required="required" class="form-control col-md-7 col-xs-12">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end col-6
-
-                                    <!-- begin col-6 -->
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de Lote </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <select id="id-tipo-lote" class="select2_single form-control" name="tipo-lote" tabindex="-1">
-                                                    <option> --- Selecione --- </option>
-                                                    <option value="Lote1">Lote 1</option>
-                                                    <option value="Lote2">Lote 2</option>
-                                                    <option value="Lote3">Lote 3</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de Habitação </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <select id="id-tipo-habitacao" class="select2_single form-control" name="tipo-habitacao" tabindex="-1">
-                                                    <option> --- Selecione --- </option>
-                                                    <option value="habitacao1">Tipo Habitação 1</option>
-                                                    <option value="habitacao2">Tipo Habitação 2</option>
-                                                    <option value="habitacao3">Tipo Habitação 3</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Metragem da Habitação </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input id="middle-name" type="text" name="metragem-habitacao" required="required" class="form-control col-md-7 col-xs-12">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Valor </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input id="middle-name" type="text" name="valor" required="required" class="form-control col-md-7 col-xs-12">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end row -->
-                            </div>
-                            <div id="step-4">
-                                <!-- begin row -->
-                                <div class="row">
-                                    <!-- begin col-6 -->
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Empresa </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <label>
-                                                    <input type="checkbox" name="tipo-vendedor" class="js-switch" />
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nome </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="text" id="nome" required="required" name="nome-empresa" class="form-control col-md-7 col-xs-12">
-                                            </div>
-                                        </div>
-                                        <div id="campo-empresa" class="hidden">
+                                        <!-- begin col-6 -->
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">NIF Empresa </label>
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Nº B.I </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <input id="middle-name" type="text" name="n-nif-empresa" required="required" class="form-control col-md-7 col-xs-12">
+                                                    <input type="text" id="last-name" name="n-bi" required="required" class="form-control col-md-7 col-xs-12">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Nº B.I Responsável</label>
+                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">NIF </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <input id="middle-name" type="text" name="n-bi-responsavel" required="required" class="form-control col-md-7 col-xs-12">
+                                                    <input id="middle-name" type="text" name="n-nif" required="required" class="form-control col-md-7 col-xs-12">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end row -->
+                                </div>
+                                <div id="step-2">
+                                    <!-- begin row -->
+                                    <div class="row">
+                                        <!-- begin col-6 -->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nome do Condomínio </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <input type="text" id="nome" required="required" name="nome-condominio" class="form-control col-md-7 col-xs-12">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Certidão Comercial </label>
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Tipo de Imóvel </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <label class="btn btn-primary btn-upload" for="inputImage" title="Carregar NIF"> Carregar
-                                                        <input type="file" class="sr-only" id="inputImage" name="certidao-comercial" accept="image/*">
-                                                        <span class="docs-tooltip" data-toggle="tooltip" title="">
-                                                        <span class="fa fa-upload"></span>
-                                                    </span>
+                                                    <select id="id-tipo-imovel" class="select2_single form-control text-center" name="tipo-imovel" tabindex="-1">
+                                                        <option value="Nenhum"> --- Selecione --- </option>
+                                                        <option value="Habitação">Habitação</option>
+                                                        <option value="Loja">Loja</option>
+                                                        <option value="Terreno">Terreno</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- end col-6
+
+                                        <!-- begin col-6 -->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Nº Descrição do Prédio </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <input id="middle-name" type="text" name="n-descricao-predio" required="required" class="form-control col-md-7 col-xs-12">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Valor do Imóvel </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <input id="middle-name" type="text" name="valor-imovel" required="required" class="form-control col-md-7 col-xs-12">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end row -->
+                                </div>
+                                <div id="step-3">
+                                    <!-- begin row -->
+                                    <div class="row">
+                                        <!-- begin col-6 -->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nº Condomínio </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <input type="text" id="nome" required="required" name="n-condominio" class="form-control col-md-7 col-xs-12">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Quadra </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <input type="text" id="last-name" name="quadra" required="required" class="form-control col-md-7 col-xs-12">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Lote </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <input id="middle-name" type="text" name="lote" required="required" class="form-control col-md-7 col-xs-12">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Metragem do Lote </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <input id="middle-name" type="text" name="metragem-lote" required="required" class="form-control col-md-7 col-xs-12">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- end col-6
+
+                                        <!-- begin col-6 -->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de Lote </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <select id="id-tipo-lote" class="select2_single form-control" name="tipo-lote" tabindex="-1">
+                                                        <option value="Nenhum"> --- Selecione --- </option>
+                                                        <option value="Lote1">Lote 1</option>
+                                                        <option value="Lote2">Lote 2</option>
+                                                        <option value="Lote3">Lote 3</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de Habitação </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <select id="id-tipo-habitacao" class="select2_single form-control" name="tipo-habitacao" tabindex="-1">
+                                                        <option value="Nenhum"> --- Selecione --- </option>
+                                                        <option value="habitacao1">Tipo Habitação 1</option>
+                                                        <option value="habitacao2">Tipo Habitação 2</option>
+                                                        <option value="habitacao3">Tipo Habitação 3</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Metragem da Habitação </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <input id="middle-name" type="text" name="metragem-habitacao" required="required" class="form-control col-md-7 col-xs-12">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end row -->
+                                </div>
+                                <div id="step-4">
+                                    <!-- begin row -->
+                                    <div class="row">
+                                        <!-- begin col-6 -->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Empresa </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <label>
+                                                        <input id="check-empresa" type="checkbox" name="tipo-vendedor" class="js-switch" />
                                                     </label>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">NIF Empresa </label>
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nome Vendedor </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <label class="btn btn-primary btn-upload" for="inputImage" title="Carregar NIF"> Carregar
-                                                        <input type="file" class="sr-only" id="inputImage" name="nif-empresa" accept="image/*">
-                                                        <span class="docs-tooltip" data-toggle="tooltip" title="">
-                                                        <span class="fa fa-upload"></span>
-                                                    </span>
-                                                    </label>
+                                                    <input type="text" id="nome" required="required" name="nome-vendedor" class="form-control col-md-7 col-xs-12">
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">B.I Responsável </label>
-                                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <label class="btn btn-primary btn-upload" for="inputImage" title="Carregar NIF"> Carregar
-                                                        <input type="file" class="sr-only" id="inputImage" name="bi-responsavel" accept="image/*">
-                                                        <span class="docs-tooltip" data-toggle="tooltip" title="">
-                                                        <span class="fa fa-upload"></span>
-                                                    </span>
-                                                    </label>
+                                            <div id="campo-empresa" class="">
+                                                <div class="form-group">
+                                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">NIF Empresa </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        <input id="middle-name" type="text" name="n-nif-empresa" required="required" class="input-empresa-txt form-control col-md-7 col-xs-12">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Nº B.I Responsável</label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        <input id="middle-name" type="text" name="n-bi-responsavel" required="required" class="input-empresa-txt form-control col-md-7 col-xs-12">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Nome Responsável </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        <input type="text" class="input-empresa-txt form-control col-md-7 col-xs-12" id="inputImage" name="nome-responsavel" accept="image/*">
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div id="campo-pessoa" class="">
-                                            <div class="form-group">
-                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">NIF Vendedor</label>
-                                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <input id="middle-name" type="text" name="n-nif-vendedor" required="required" class="form-control col-md-7 col-xs-12">
+                                            <div id="campo-pessoa" class="">
+                                                <div class="form-group">
+                                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">NIF Vendedor</label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        <input id="middle-name" type="text" name="n-nif-vendedor" required="required" class="input-pessoa-txt form-control col-md-7 col-xs-12">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Nº B.I Vendedor</label>
-                                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <input id="middle-name" type="text" name="n-bi-vendedor" required="required" class="form-control col-md-7 col-xs-12">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">NIF Vendedor</label>
-                                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <input type="file" class="col-md-7 col-xs-12" id="inputImage" name="nif-vendedor" accept="image/*">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">B.I Vendedor</label>
-                                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <input type="file" class="col-md-7 col-xs-12" id="inputImage" name="bi-vendedor" accept="image/*">
+                                                <div class="form-group">
+                                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Nº B.I Vendedor</label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        <input id="middle-name" type="text" name="n-bi-vendedor" required="required" class="input-pessoa-txt form-control col-md-7 col-xs-12">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- end col-6
+                                        <!-- end col-6
 
-                                    <!-- begin col-6 -->
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">NIF Comprador</label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="file" class="col-md-7 col-xs-12" id="inputImage" name="nif-comprador" accept="image/*">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">B.I Comprador</label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="file" class="col-md-7 col-xs-12" id="inputImage" name="bi-comprador" accept="image/*">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Contrato </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="file" class="col-md-7 col-xs-12" id="inputImage" name="contrato" accept="image/*">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Termo de Quitação </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="file" class="col-md-7 col-xs-12" id="inputImage" name="termo-quitacao" accept="image/*">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Certidão Predial </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="file" class="col-md-7 col-xs-12" id="inputImage" name="certidao-predial" accept="image/*">
-                                            </div>
+                                        <!-- begin col-6 -->
+                                        <div class="col-md-6">
+
                                         </div>
                                     </div>
+                                    <!-- end row -->
                                 </div>
-                                <!-- end row -->
-                            </div>
                             </form>
                         </div>
                         <!-- End SmartWizard Content -->

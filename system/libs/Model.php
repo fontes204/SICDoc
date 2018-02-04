@@ -37,15 +37,6 @@
             return $k;
         }
 
-//    public function insert($tabela,$campos=array(),$k=array())
-//    {
-//        $stmt=self::conn()->prepare("INSERT INTO ".$tabela." ".self::retornaFields($campos)." VALUES " .self::returnPlaceholder($campos));
-//        if($stmt->execute($k))
-//            return true;
-//        else
-//            return false;
-//
-//    }
     public function insert($k=array())
     {
         try {
@@ -56,11 +47,6 @@
         {
             echo $e->getMessage();
         }
-
-    }
-
-    public function insertFilha()
-    {
 
     }
 
@@ -88,13 +74,37 @@
         }
     }
 
+    public function ultimoNumProcesso($condominio)
+    {
+        try {
+            $stmt = self::conn()->prepare("SELECT * FROM " . "imovel" . " WHERE _n_processo LIKE ?");
+            if ($stmt->execute(array($condominio)))
+                return $stmt;
+        }catch (PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
     public function listarPorId($tabela,$id)
     {
         try {
             $stmt = self::conn()->prepare("SELECT * FROM " . $tabela . " WHERE _id=?");
             if ($stmt->execute(array($id)))
-                return $stmt;
+                return $stmt->fetchObject();
         }catch (PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
+    public function listarPorEstado($estado)
+    {
+        try {
+            $stmt = self::conn()->prepare("SELECT * FROM " . "imovel" . " WHERE _id_estado=? ORDER BY _data_criacao DESC");
+            if ($stmt->execute(array($estado)))
+                return $stmt->fetchAll();
+        }catch(PDOException $e)
         {
             echo $e->getMessage();
         }
@@ -106,6 +116,18 @@
             $stmt = self::conn()->prepare("SELECT * FROM " . $tabela . " WHERE _nome=?");
             if ($stmt->execute(array($nome)))
                 return $stmt;
+        }catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
+    public function listarPelaChaveEstrangeira($tabela,$chave,$valor)
+    {
+        try {
+            $stmt = self::conn()->prepare("SELECT * FROM " . $tabela . " WHERE ".$chave."=?");
+            if ($stmt->execute(array($valor)))
+                return $stmt->fetchObject();
         }catch(PDOException $e)
         {
             echo $e->getMessage();
