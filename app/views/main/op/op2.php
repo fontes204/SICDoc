@@ -35,9 +35,7 @@
                             <li><a><i class="fa fa-file-archive-o"></i> Processo <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="<?php echo URL.$att->getContoller().'/novo/'.base64_encode('processo');?>">Novo Processo</a></li>
-                                    <li><a href="form_advanced.html">Editar Processo</a></li>
-                                    <li><a href="<?php echo URL.$att->getContoller().'/filtrar/'.base64_encode('processo');?>">Procurar Processo</a></li>
-                                    <li><a href="form_wizards.html">Eliminar Processo</a></li>
+                                    <li><a href="<?php echo URL.$att->getContoller().'/listar';?>">Todos Processos</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-file"></i> Factura <span class="fa fa-chevron-down"></span></a>
@@ -50,18 +48,13 @@
                             <li><a><i class="fa fa-group"></i> Gerir Funcionários <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="<?php echo URL.$att->getContoller().'/novo/'.base64_encode('funcionario');?>">Novo Funcionário</a></li>
-                                    <li><a href="#">Editar Funcionário</a></li>
-                                    <li><a href="typography.html">Listar Todos Funcionários</a></li>
-                                    <li><a href="<?php echo URL.$att->getContoller().'/filtrar/'.base64_encode('funcionario');?>">Procurar Funcionário</a></li>
-                                    <li><a href="typography.html">Eliminar Funcionário</a></li>
+                                    <li><a href="<?php echo URL.$att->getContoller().'/filtrar/'.base64_encode('funcionario');?>">Listar Todos Funcionários</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-group"></i> Gerir Emolumentos <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="general_elements.html">Novo Emolumento</a></li>
-                                    <li><a href="#">Editar Emolumento</a></li>
                                     <li><a href="typography.html">Listar Todos Emolumentos</a></li>
-                                    <li><a href="typography.html">Eliminar Emolumento</a></li>
                                 </ul>
                             </li>
                         </ul>

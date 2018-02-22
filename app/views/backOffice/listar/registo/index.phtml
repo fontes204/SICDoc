@@ -1,11 +1,10 @@
 <?php
-    $att = new Atributo();
-    $imovel = new Imovel();
-    $imovelDao = new ImovelDao();
-    $rtnImovel = $imovelDao->listarPorEstado(1);
+$att = new Atributo();
+$imovel = new Imovel();
+$imovelDao = new ImovelDao();
+$rtnImovel = $imovelDao->listarPorEstado(4);
 
-    $clienteDao = new ClienteDao(); //var_dump($rtnImovel[$i]->_id_cliente)
-
+$clienteDao = new ClienteDao(); //var_dump($rtnImovel[$i]->_id_cliente)
 
 ?>
 <!-- page content -->
@@ -13,7 +12,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Pré-Registo</h3>
+                <h3>Pendente de Registo</h3>
             </div>
 
         </div>
@@ -24,7 +23,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Resultado da Consulta</h2>
+                        <h2>Abaixo encontram-se todos os Processos que aguardam pelo Registo Predial</h2>
 
                         <div class="clearfix"></div>
 
@@ -49,15 +48,15 @@
                                     $tipoImovel = $rtnImovel[$i]->_tipo_imovel;
                                     $data = $rtnImovel[$i]->_data_criacao;
                                     $id = base64_encode($rtnImovel[$i]->_id_cliente);
-                                ?>
-                                <tr>
-                                    <td><?php echo $i+1;?></td>
-                                    <td><?php echo $nome->_nome;?></td>
-                                    <td><?php echo $n_processo;?></td>
-                                    <td><?php echo $tipoImovel;?></td>
-                                    <td><?php echo $data;?></td>
-                                    <td><a href="<?php echo URL.$att->getContoller().'/visualizar/'.$id;?>">Ver <i class="fa fa-eye right"></i></a></td>
-                                </tr>
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $i+1;?></td>
+                                        <td><?php echo $nome->_nome;?></td>
+                                        <td><?php echo $n_processo;?></td>
+                                        <td><?php echo $tipoImovel;?></td>
+                                        <td><?php echo $data;?></td>
+                                        <td><a href="<?php echo URL.$att->getContoller().'/visualizar/'.$id;?>">Ver <i class="fa fa-eye right"></i></a></td>
+                                    </tr>
                                 <?php endfor;?>
 
                                 </tbody>

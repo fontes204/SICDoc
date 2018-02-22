@@ -13,3 +13,7 @@
 
 .profile-image{height:490px;line-height:175px;text-align:center;font-size:72px;margin-bottom:10px;border: none;overflow:hidden;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}
 .profile-image img{display:block;max-width:100%;max-height: 300%}
+
+.input-file-width {
+    width: 120%;
+}

@@ -25,6 +25,12 @@ class GerenciaController extends Controller
             $this->view->render(GRC,'listar/'.$paramentro);
     }
 
+    public function listar()
+    {
+        if(isset($this->view))
+            $this->view->render(GRC,'listarTodos');
+    }
+
     public function filtrar($t)
     {
         $paramentro = base64_decode($t);

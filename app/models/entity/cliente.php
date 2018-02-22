@@ -11,8 +11,10 @@ class Cliente extends Atributo
     protected $_id;
     protected $_nome;
     protected $_genero;
+    protected $_estado_civil;
     protected $_bi;
     protected $_nif;
+    protected $_n_bi_esposa;
 
     /**
      * @return mixed
@@ -94,4 +96,35 @@ class Cliente extends Atributo
         $this->_nif = $nif;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getEstadoCivil()
+    {
+        return $this->_estado_civil;
+    }
+
+    /**
+     * @param mixed $estado_civil
+     */
+    public function setEstadoCivil($estado_civil)
+    {
+        $this->_estado_civil = $estado_civil;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNBiEsposa()
+    {
+        return $this->_n_bi_esposa;
+    }
+
+    /**
+     * @param mixed $n_bi_esposa
+     */
+    public function setNBiEsposa($n_bi_esposa)
+    {
+        $this->_n_bi_esposa = $n_bi_esposa;
+    }
 }

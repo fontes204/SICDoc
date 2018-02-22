@@ -55,7 +55,19 @@
         try {
             $stmt = self::conn()->prepare("SELECT * FROM ".$tabela);
             if ($stmt->execute())
-                return $stmt;
+                return $stmt->fetchAll();
+        }catch (PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
+    public function listarTodosImoveis()
+    {
+        try {
+            $stmt = self::conn()->prepare("SELECT * FROM imovel ORDER BY _data_criacao DESC");
+            if ($stmt->execute())
+                return $stmt->fetchAll();
         }catch (PDOException $e)
         {
             echo $e->getMessage();
@@ -134,6 +146,30 @@
         }
     }
 
+    public function listarPelaChaveEstrangeiraALL($tabela,$chave,$valor)
+    {
+        try {
+            $stmt = self::conn()->prepare("SELECT * FROM " . $tabela . " WHERE ".$chave."=?");
+            if ($stmt->execute(array($valor)))
+                return $stmt->fetchAll();
+        }catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
+    public function listarPelaChaveEstrangeiraAND($tabela,$chave1,$valor1,$chave2,$valor2)
+    {
+        try {
+            $stmt = self::conn()->prepare("SELECT * FROM " . $tabela . " WHERE ".$chave1."=?" ." AND ".$chave2."=?");
+            if ($stmt->execute(array($valor1,$valor2)))
+                return $stmt->fetchObject();
+        }catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
     public function buscaExaustiva($campo=array(),$tabela,$condicao,$valor=array())
     {
         try {
@@ -150,10 +186,26 @@
     {
         //update usuario set nome=?,
         //update utilizador set _nome=?, _telefone=?, _id_funcao=? where _id=?
+
         try {
             $stmt = self::conn()->prepare("UPDATE ".$tabela." SET ".self::retornaFieldSel($campos)." WHERE ".self::retornaFieldSel($cond));
             if($stmt->execute($valores))
                 return true;
+        }catch (PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
+    public function alterarUmCampo($tabela,$campo,$valore1,$cond,$valore2)
+    {
+        //update utilizador set _nome=?, _telefone=?, _id_funcao=? where _id=?
+
+        $sql = "UPDATE ".$tabela." SET ".$campo."=".$valore1." WHERE ".$cond."=".$valore2;
+        try {
+            $stmt = self::conn()->prepare($sql);
+            if($stmt->execute())
+                return $stmt->rowCount();
         }catch (PDOException $e)
         {
             echo $e->getMessage();

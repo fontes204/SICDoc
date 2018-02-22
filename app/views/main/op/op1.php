@@ -35,15 +35,7 @@
                             <li><a><i class="fa fa-file-archive-o"></i> Processo <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="<?php echo URL.$att->getContoller().'/novo/'.base64_encode('processo');?>">Criar Processo</a></li>
-                                    <li><a href="form_advanced.html">Editar Processo</a></li>
-                                    <li><a href="form_validation.html">Procurar Processo</a></li>
-                                </ul>
-                            </li>
-                            <li><a><i class="fa fa-file"></i> Factura <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="general_elements.html">Criar Factura</a></li>
-                                    <li><a href="media_gallery.html">Procurar Factura</a></li>
-                                    <li><a href="typography.html">Factura Pro-forma</a></li>
+                                    <li><a href="<?php echo URL.$att->getContoller().'/listar';?>">Todos Processos</a></li>
                                 </ul>
                             </li>
                         </ul>

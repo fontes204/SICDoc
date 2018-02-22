@@ -2,9 +2,9 @@
 $att = new Atributo();
 $imovel = new Imovel();
 $imovelDao = new ImovelDao();
-$rtnImovel = $imovelDao->listarPorEstado(5);
+$rtnImovel = $imovelDao->listarTodosImoveis();
 
-$clienteDao = new ClienteDao(); //var_dump($rtnImovel[$i]->_id_cliente)
+$clienteDao = new ClienteDao();
 
 ?>
 <!-- page content -->
@@ -12,7 +12,7 @@ $clienteDao = new ClienteDao(); //var_dump($rtnImovel[$i]->_id_cliente)
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Concluídos</h3>
+                <h3>Todos os Processos</h3>
             </div>
 
         </div>
@@ -23,8 +23,7 @@ $clienteDao = new ClienteDao(); //var_dump($rtnImovel[$i]->_id_cliente)
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Resultado da Consulta</h2>
-
+                        <h2>Os processos estão organizados por data de criação</h2>
                         <div class="clearfix"></div>
 
                         <div class="x_content">

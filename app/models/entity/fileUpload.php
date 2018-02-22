@@ -2,17 +2,16 @@
 
 /**
  * Created by PhpStorm.
- * User: Sony
- * Date: 28-jan-2018
- * Time: 16:25
+ * User: mac
+ * Date: 30/12/16
+ * Time: 15:51
  */
-class Doc_Gerado extends Atributo
+class fileUpload extends Atributo
 {
     protected $_id;
     protected $_nome;
     protected $_caminho;
-    protected $_tipo;
-    protected $_id_imovel;
+    protected $_id_movel;
 
     /**
      * @return mixed
@@ -65,32 +64,16 @@ class Doc_Gerado extends Atributo
     /**
      * @return mixed
      */
-    public function getTipo()
+    public function getIdMovel()
     {
-        return $this->_tipo;
+        return $this->_id_movel;
     }
 
     /**
-     * @param mixed $tipo
+     * @param mixed $id_movel
      */
-    public function setTipo($tipo)
+    public function setIdMovel($id_movel)
     {
-        $this->_tipo = $tipo;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIdImovel()
-    {
-        return $this->_id_imovel;
-    }
-
-    /**
-     * @param mixed $id_imovel
-     */
-    public function setIdImovel($id_imovel)
-    {
-        $this->_id_imovel = $id_imovel;
+        $this->_id_movel = $id_movel;
     }
 }

@@ -16,8 +16,8 @@ class Doc_GeradoDao extends Model
     public function criarDoc_gerado(Doc_Gerado $doc_Gerado)
     {
         if ($this->insert($doc_Gerado->parametro()))
-            echo 1;
+            return 1;
         else
-            echo 0;
+            return 0;
     }
 }

@@ -16,8 +16,8 @@ class Doc_PessoalDao extends Model
     public function criarDocPessoal(Doc_Pessoal $doc_pessoal)
     {
         if($this->insert($doc_pessoal->parametro()))
-            echo 1;
+            return 1;
         else
-            echo 0;
+            return 0;
     }
 }

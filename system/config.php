@@ -29,7 +29,7 @@ define('GEN_FOOTER',DIRECTORY_SEPARATOR.'geral'.DIRECTORY_SEPARATOR.'footer.php'
 define('EXTENSION','.php');
 define('GEN_INDEX',DIRECTORY_SEPARATOR.'geral'.SICDOC);
 define('MENU',DIRECTORY_SEPARATOR.'menu'.SICDOC);
-define('SCT','secretaria/geral/');
+define('BCK','backOffice/geral/');
 define('GRC','gerencia/geral/');
 define('LOGIN_VIEW','login'.SICDOC);
 define('TEC','tecnico/geral/');

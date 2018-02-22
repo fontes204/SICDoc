@@ -7,7 +7,7 @@ switch (Session::get('type'))
     case 'sys':
         include_once ('op/sys-menu.php');
         break;
-    case 'SCT':
+    case 'BCK':
         include_once ('op/op1.php');
         break;
     case 'GRC':
@@ -27,16 +27,34 @@ switch (Session::get('type'))
                 <a id="menu_toggle"><i class="fa fa-bars"></i></a>
             </div>
 
-            <ul class="nav navbar-nav navbar-right">
-                <li class="">
-                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-user"></i> &nbsp;<?php echo $nome?>
-                        <span class=" fa fa-angle-down"></span>
+            <ul class="nav navbar-nav navbar-left">
+
+                <li role="presentation" class="dropdown">
+                    <a href="<?php echo URL.$att->getContoller().'/listarTodos/'.base64_encode('pagamento');?>">
+                        <i class="fa fa-folder"></i>
+                        <span>Pendente de Pagamento</span>
                     </a>
-                    <ul class="dropdown-menu dropdown-usermenu pull-right">
-                        <li><a href="<?php echo URL . $att->getContoller() . '/perfil/'. base64_encode($perfil);?>"><i class="fa fa-user pull-right"></i> Perfil</a></li>
-                        <li><a href="<?php echo URL.'logout/exit_'?>"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
-                    </ul>
+                </li>
+
+                <li role="presentation" class="dropdown">
+                    <a href="<?php echo URL.$att->getContoller().'/listarTodos/'.base64_encode('financas');?>">
+                        <i class="fa fa-folder"></i>
+                        <span>Pendente das Finanças</span>
+                    </a>
+                </li>
+
+                <li role="presentation" class="dropdown">
+                    <a href="<?php echo URL.$att->getContoller().'/listarTodos/'.base64_encode('escritura');?>">
+                        <i class="fa fa-folder"></i>
+                        <span>Pendente de Escritura</span>
+                    </a>
+                </li>
+
+                <li role="presentation" class="dropdown">
+                    <a href="<?php echo URL.$att->getContoller().'/listarTodos/'.base64_encode('registo');?>">
+                        <i class="fa fa-folder"></i>
+                        <span>Pendente de Registo</span>
+                    </a>
                 </li>
 
                 <li role="presentation" class="dropdown">
@@ -46,32 +64,21 @@ switch (Session::get('type'))
                     </a>
                 </li>
 
-                <li role="presentation" class="dropdown">
-                    <a href="<?php echo URL.$att->getContoller().'/listarTodos/'.base64_encode('conservatoria');?>">
-                        <i class="fa fa-folder"></i>
-                        <span>Conservatória Predial</span>
+                <li>
+                    <a>
+                        <span>&nbsp;&nbsp;&nbsp;</span>
                     </a>
                 </li>
 
-                <li role="presentation" class="dropdown">
-                    <a href="<?php echo URL.$att->getContoller().'/listarTodos/'.base64_encode('cartorio');?>">
-                        <i class="fa fa-folder"></i>
-                        <span>Cartório</span>
+                <li>
+                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-user"></i> &nbsp;<?php echo $nome?>
+                        <span class=" fa fa-angle-down"></span>
                     </a>
-                </li>
-
-                <li role="presentation" class="dropdown">
-                    <a href="<?php echo URL.$att->getContoller().'/listarTodos/'.base64_encode('financas');?>">
-                        <i class="fa fa-folder"></i>
-                        <span>Finanças</span>
-                    </a>
-                </li>
-
-                <li role="presentation" class="dropdown">
-                    <a href="<?php echo URL.$att->getContoller().'/listarTodos/'.base64_encode('pre-resgisto');?>">
-                        <i class="fa fa-folder"></i>
-                        <span>Pré-Registo</span>
-                    </a>
+                    <ul class="dropdown-menu dropdown-usermenu pull-right">
+                        <li><a href="<?php echo URL . $att->getContoller() . '/perfil/'. base64_encode($perfil);?>"><i class="fa fa-user pull-right"></i> Perfil</a></li>
+                        <li><a href="<?php echo URL.'logout/exit_'?>"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
+                    </ul>
                 </li>
             </ul>
         </nav>

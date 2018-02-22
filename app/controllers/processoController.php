@@ -27,13 +27,15 @@ class ProcessoController extends Controller
         $cliente->setGenero(htmlentities(addslashes(filter_input(INPUT_POST,'genero'))));
         $cliente->setBi(htmlentities(addslashes(filter_input(INPUT_POST,'n-bi'))));
         $cliente->setNif(htmlentities(addslashes(filter_input(INPUT_POST,'n-nif'))));
+        $cliente->setEstadoCivil(htmlentities(addslashes(filter_input(INPUT_POST,'estado-civil'))));
+        $cliente->setNBiEsposa(htmlentities(addslashes(filter_input(INPUT_POST,'n-bi-esposa'))));
 
         $rtnCliente = $clienteDao->criarCliente($cliente);
 
         if($rtnCliente == true) {
             $ultimoCliente = $clienteDao->ultimoElemento('cliente')->_id;
         }else {
-            $msg += 'O cliente não inserido.<br />';
+            $msg += 'Cliente não inserido.<br />';
         }
 
 
@@ -74,7 +76,7 @@ class ProcessoController extends Controller
                     $msg += 'Empresa não inserida.<br />';
                 }
             }else {
-                $msg += 'O vendedor não inserido.<br />';
+                $msg += 'Vendedor não inserido.<br />';
             }
         }elseif ($checkBtn == 0){
             $vendedor->setNNif(htmlentities(addslashes(filter_input(INPUT_POST,'n-nif-vendedor'))));
@@ -93,7 +95,7 @@ class ProcessoController extends Controller
 
                 $rtnPessoa = $pessoa_fisicaDao->criarPessoaFisica($pessoa_fisica);
             }else{
-                $msg += 'O vendedor não inserido.<br />';
+                $msg += 'Vendedor não inserido.<br />';
             }
         }
 
@@ -110,14 +112,14 @@ class ProcessoController extends Controller
         $imovel->setIdCliente($ultimoCliente);
         $imovel->setIdVendedor($vendedor->getId());
         $imovel->setIdEstado(1);
-        $imovel->setDataCriacao(null);
+        $imovel->setDataCriacao(Date('Y-m-d'));
 
         $rtnImovel = $imovelDao->criarImovel($imovel);
 
         if($rtnImovel == true) {
             $ultimoImovel = $imovelDao->ultimoElemento('imovel')->_id;
         }else {
-            $msg += 'O imóvel não inserido.<br />';
+            $msg += 'Imóvel não inserido.<br />';
         }
 
         $localizacao=new Localizacao();
@@ -137,7 +139,7 @@ class ProcessoController extends Controller
         if ($rtnLocalizacao == true) {
             $ultimaLocalizacao = $localizacaoDao->ultimoElemento('localizacao');
         }else {
-            $msg += 'A localização não inserida.<br />';
+            $msg += 'Localização não inserida.<br />';
         }
 
         if($rtnCliente==true AND $rtnVendedor==true AND ($rtnEmpresa==true OR $rtnPessoa==true) AND $rtnImovel==true AND $rtnLocalizacao==true)
@@ -156,6 +158,131 @@ class ProcessoController extends Controller
         }else {
             $objecto->setId($id->_id + 1);
            // return $objecto->getId();
+        }
+    }
+
+    public function carregarFile()
+    {
+        $fileDao  = new fileUploadDao();
+        $file = new fileUpload();
+
+        $this->ultimoId('doc_gerado',$file,$fileDao);
+        $file->setNome(basename($_FILES['carregar-doc-proc']['name']));
+        $file->setCaminho(htmlentities(addslashes(filter_input(INPUT_POST,'caminho-pasta-fase'))));
+        $tipo = htmlentities(addslashes(filter_input(INPUT_POST,'tipo-doc')));
+
+        $file->setIdMovel(1233);
+
+        $tmp_name = $_FILES["carregar-doc-proc"]["tmp_name"];
+
+        $rtn = $fileDao->guardarDocumento($file,$tmp_name);
+        if($rtn['rtn'] == 1) {
+            var_dump($rtn);
+        }else{
+            var_dump($rtn);
+        }
+    }
+
+    public function carregarFileDocProc()
+    {
+        $fileDao  = new fileUploadDao();
+        $file = new fileUpload();
+
+        $file->setNome(basename($_FILES['carregar-doc-proc']['name']));
+        $file->setCaminho(htmlentities(addslashes(filter_input(INPUT_POST,'caminho-pasta-fase'))));
+        $idImovel = htmlentities(addslashes(filter_input(INPUT_POST,'id-imovel')));
+        $tipo = htmlentities(addslashes(filter_input(INPUT_POST,'tipo-doc-proc')));
+        $idC = htmlentities(addslashes(filter_input(INPUT_POST,'idCc')));
+        $estadoImovel = htmlentities(addslashes(filter_input(INPUT_POST,'estado-imovel')));
+        $bitUpdate = 0;
+        $estadoImovel+=1;
+
+        if($tipo=='sisa'){
+            $rtnTipo = $fileDao->listarPelaChaveEstrangeiraAND('doc_gerado','_id_imovel',$idImovel,'_tipo','certidao-matricial');
+            if ($rtnTipo == false  || !is_object($rtnTipo)){
+                $bitUpdate = 1;
+            }else {
+                $bitUpdate = 0;
+            }
+        }elseif ($tipo=='certidao-matricial'){
+            $rtnTipo = $fileDao->listarPelaChaveEstrangeiraAND('doc_gerado','_id_imovel',$idImovel,'_tipo','sisa');
+            if ($rtnTipo == false  || !is_object($rtnTipo)){
+                $bitUpdate = 1;
+            }else {
+                $bitUpdate = 0;
+            }
+        }
+
+        $url = 'Location: '.URL.'backOffice/visualizar/'.base64_encode($idC);
+
+        $tmp_name = $_FILES["carregar-doc-proc"]["tmp_name"];
+
+        $rtn = $fileDao->guardarDocumento($file,$tmp_name);
+
+        if($rtn['rtn'] == 1) {
+
+            $doc_geradoDao = new Doc_GeradoDao();
+            $doc_gerado = new Doc_Gerado();
+
+            $this->ultimoId('doc_gerado',$doc_gerado,$doc_geradoDao);
+            $doc_gerado->setNome($rtn['nome']);
+            $doc_gerado->setCaminho($rtn['caminho']);
+            $doc_gerado->setTipo($tipo);
+            $doc_gerado->setIdImovel($idImovel);
+
+            $rtnFinal = $doc_geradoDao->criarDoc_gerado($doc_gerado);
+
+            if($rtnFinal){
+                if($bitUpdate==0) {
+                    $imovelDao = new ImovelDao();
+                    $imovelDao->alterarUmCampo('imovel', '_id_estado', $estadoImovel, '_id', $idImovel);
+                }
+                header($url);
+            } else{
+                $url = $url.'/?erro=0';
+                header($url);
+            }
+        }else{
+            $url = $url.'/?erro=$rtn';
+            header($url);
+        }
+    }
+
+    public function carregarFileDocPessoal()
+    {
+        $tipo = htmlentities(addslashes(filter_input(INPUT_POST,'tipo-doc')));
+        $idC = htmlentities(addslashes(filter_input(INPUT_POST,'idC')));
+        $caminho = htmlentities(addslashes(filter_input(INPUT_POST,'caminho-pasta')));
+        $nome = basename($_FILES['carregar-doc-pessoal']['name']);
+        $tmp_name = $_FILES["carregar-doc-pessoal"]["tmp_name"];
+
+        $url = 'Location: '.URL.'backOffice/visualizar/'.base64_encode($idC);
+
+        $fileDao  = new fileUploadDao();
+
+        $rtn = $fileDao->carregarDoc($caminho,$nome,$tmp_name);
+
+        if($rtn['rtn'] == 1) {
+
+            $doc_pessoalDao = new Doc_PessoalDao();
+            $doc_pessoal = new Doc_Pessoal();
+
+            $this->ultimoId('doc_pessoal',$doc_pessoal,$doc_pessoalDao);
+            $doc_pessoal->setNome($rtn['nome']);
+            $doc_pessoal->setCaminho($rtn['caminho']);
+            $doc_pessoal->setTipo($tipo);
+            $doc_pessoal->setIdCliente($idC);
+
+            $rtnFinal = $doc_pessoalDao->criarDocPessoal($doc_pessoal);
+            if($rtnFinal){
+                header($url);
+            } else{
+                $url = $url.'/?erro=0';
+                header($url);
+            }
+        }else{
+            $url = $url.'/?erro='.$rtn;
+            header($url);
         }
     }
 }

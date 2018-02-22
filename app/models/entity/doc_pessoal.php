@@ -10,7 +10,8 @@ class Doc_Pessoal extends Atributo
 {
     protected $_id;
     protected $_nome;
-    protected $_estado;
+    protected $_caminho;
+    protected $_tipo;
     protected $_id_cliente;
 
     /**
@@ -48,17 +49,33 @@ class Doc_Pessoal extends Atributo
     /**
      * @return mixed
      */
-    public function getEstado()
+    public function getCaminho()
     {
-        return $this->_estado;
+        return $this->_caminho;
     }
 
     /**
-     * @param mixed $estado
+     * @param mixed $caminho
      */
-    public function setEstado($estado)
+    public function setCaminho($caminho)
     {
-        $this->_estado = $estado;
+        $this->_caminho = $caminho;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTipo()
+    {
+        return $this->_tipo;
+    }
+
+    /**
+     * @param mixed $tipo
+     */
+    public function setTipo($tipo)
+    {
+        $this->_tipo = $tipo;
     }
 
     /**

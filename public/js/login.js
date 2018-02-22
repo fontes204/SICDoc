@@ -11,8 +11,8 @@ $(document).ready(function () {
                 case "GRC":
                     window.location=URL+'gerencia';
                     break;
-                case 'SCT':
-                    window.location=URL+'secretaria';
+                case 'BCK':
+                    window.location=URL+'backOffice';
                     break;
                 case 'Tecnico':
                     window.location=URL+'tecnico';
