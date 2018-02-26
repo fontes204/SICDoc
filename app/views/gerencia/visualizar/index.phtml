@@ -36,6 +36,14 @@ $doc_pessoal = new Doc_Pessoal();
 $doc_pessoalDao = new Doc_PessoalDao();
 //$rtnDoc_pessoal = $doc_pessoalDao->listarPelaChaveEstrangeiraALL("doc_pessoal","_id_cliente",$idCliente);
 
+switch ($rtnImovel->_id_estado){
+    case 1: $estadoProcesso = 'Pendente de Pagamento'; break;
+    case 2: $estadoProcesso = 'Pendente das Finanças'; break;
+    case 3: $estadoProcesso = 'Pendente de Escritura'; break;
+    case 4: $estadoProcesso = 'Pendente de Registo'; break;
+    case 5: $estadoProcesso = 'Processo Concluído'; break;
+}
+
 /*
 if(isset($_GET['erro']))
     $erro = $_GET['erro'];*/
@@ -50,10 +58,8 @@ if(isset($_GET['erro']))
                     <div class="icon" style="color: #fff;"><i class="fa fa-info-circle "></i></div>
                     <div class="count">
                         <i class="fa fa-user"></i> <?php echo $rtnCliente->_nome; ?>
-                        <?php if($rtnImovel->_id_estado == 5):?>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <label>Processo Concluído</label>
-                        <?php endif;?>
+                            <label><?php echo $estadoProcesso;?></label>
                     </div>
                     <h3 style="color: #fff;"><i class="fa fa-file-text" ></i> N&ordm; Processo: <?php echo $rtnImovel->_n_processo; ?></h3>
                 </div>
@@ -601,15 +607,20 @@ if(isset($_GET['erro']))
                                             <thead>
                                             <tr>
                                                 <th>
+                                                    <?php echo 'Nome '. $parceiro;?>
+                                                </th>
+                                                <th>
                                                     <?php echo 'Nº B.I '. $parceiro;?>
                                                 </th>
-                                                <th><?php echo 'B.I '.$parceiro;?></th>
                                                 <th>Regime de Casamento</th>
+                                                <th><?php echo 'B.I '.$parceiro;?></th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <tr>
+                                                <td><?php echo $outrosDados->_nome_esposa;?></td>
                                                 <td><?php echo $outrosDados->_n_bi_esposa;?></td>
+                                                <td><?php echo $rtnCliente->_regime_casamento;?></td>
                                                 <td>
                                                     <div class="form-group">
                                                         <?php
@@ -637,40 +648,6 @@ if(isset($_GET['erro']))
                                                                        data-toggle="modal"
                                                                        data-target=".modal-imagem">
                                                                     Ver <?php echo 'B.I'.$parceiro;?>
-                                                                </label>
-                                                                <?php
-                                                            }
-                                                        }
-                                                        ?>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="form-group">
-                                                        <?php
-                                                        $outro_Regime_casam = $doc_pessoalDao->listarPelaChaveEstrangeiraAND("doc_pessoal","_id_cliente",$idCliente,"_tipo",'regime-casamento');
-
-                                                        if ($outro_Regime_casam == false  || !is_object($outro_Regime_casam)){
-                                                            ?>
-                                                            <label class="target-dir btn btn-primary" tipo="regime-casamento"
-                                                                   data-toggle="modal" data-target=".modal-doc-pessoal">Carregar Regime Casamento</label>
-                                                            <?php
-                                                        }else {
-                                                            $extencao_outro_Regime_casam = explode('.',$outro_Regime_casam->_nome);
-                                                            $dados_outro_Regime_casam = URL . $outro_Regime_casam->_caminho . $outro_Regime_casam->_nome;
-                                                            if($extencao_outro_Regime_casam[count($extencao_outro_Regime_casam)-1] == 'pdf'){
-                                                                ?>
-                                                                <a class="btn btn-default"
-                                                                   href="<?php echo $dados_outro_Regime_casam; ?>" target="_blank">
-                                                                    Ver Regime Casamento
-                                                                </a>
-                                                                <?php
-                                                            }else {
-                                                                ?>
-                                                                <label class="btn btn-default btn-ver"
-                                                                       dados="<?php echo $dados_outro_Regime_casam; ?>"
-                                                                       data-toggle="modal"
-                                                                       data-target=".modal-imagem">
-                                                                    Ver Regime Casamento
                                                                 </label>
                                                                 <?php
                                                             }

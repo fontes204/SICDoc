@@ -62,6 +62,18 @@
         }
     }
 
+    public function listarTodosPor($tabela,$por)
+    {
+        try {
+            $stmt = self::conn()->prepare("SELECT * FROM ".$tabela." ORDER BY ".$por." ASC");
+            if ($stmt->execute())
+                return $stmt->fetchAll();
+        }catch (PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
     public function listarTodosImoveis()
     {
         try {
@@ -199,12 +211,12 @@
 
     public function alterarUmCampo($tabela,$campo,$valore1,$cond,$valore2)
     {
-        //update utilizador set _nome=?, _telefone=?, _id_funcao=? where _id=?
+        //UPDATE funcionario SET _foto="94874830" WHERE _id=2;
 
-        $sql = "UPDATE ".$tabela." SET ".$campo."=".$valore1." WHERE ".$cond."=".$valore2;
+        $sql = "UPDATE ".$tabela." SET ".$campo."=?"." WHERE ".$cond."=".$valore2;
         try {
             $stmt = self::conn()->prepare($sql);
-            if($stmt->execute())
+            if($stmt->execute(array($valore1)))
                 return $stmt->rowCount();
         }catch (PDOException $e)
         {

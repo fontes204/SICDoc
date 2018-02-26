@@ -33,6 +33,7 @@ $clienteDao = new ClienteDao();
                                     <th>#</th>
                                     <th>Nome Comprador</th>
                                     <th>Nº do Processo</th>
+                                    <th>Estado</th>
                                     <th>Tipo de Imóvel</th>
                                     <th>Data de Criação</th>
                                     <th>Acção</th>
@@ -52,6 +53,21 @@ $clienteDao = new ClienteDao();
                                         <td><?php echo $i+1;?></td>
                                         <td><?php echo $nome->_nome;?></td>
                                         <td><?php echo $n_processo;?></td>
+                                        <td>
+                                            <?php
+                                            if($rtnImovel[$i]->_id_estado == '1') {
+                                                echo 'Pendente de Pagamento';
+                                            } elseif ($rtnImovel[$i]->_id_estado == '2') {
+                                                echo 'Pendente das Finanças';
+                                            } elseif ($rtnImovel[$i]->_id_estado == '3'){
+                                                echo 'Pendente de Escritur';
+                                            } elseif ($rtnImovel[$i]->_id_estado == '4'){
+                                                echo 'Pendente de Registo';
+                                            } elseif ($rtnImovel[$i]->_id_estado == '5'){
+                                                echo 'Concluídos';
+                                            }
+                                            ?>
+                                        </td>
                                         <td><?php echo $tipoImovel;?></td>
                                         <td><?php echo $data;?></td>
                                         <td><a href="<?php echo URL.$att->getContoller().'/visualizar/'.$id;?>">Ver <i class="fa fa-eye right"></i></a></td>

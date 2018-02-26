@@ -49,4 +49,24 @@ class BackOfficeController extends Controller
         if(isset($this->view))
             $this->view->render(BCK,'perfil');
     }
+
+    public function alterarCredenciais()
+    {
+        if(isset($this->view))
+            $this->view->render(BCK,'perfil');
+    }
+
+    public function carregarFotoPerfil()
+    {
+        $idUser = htmlentities(addslashes(filter_input(INPUT_POST,'idUser')));
+        $nome = basename($_FILES['carregar-imagem']['name']);
+        $caminho = htmlentities(addslashes(filter_input(INPUT_POST,'caminho-imagem')));
+
+        $tmp_name = $_FILES["carregar-imagem"]["tmp_name"];
+
+        $rtn = $this->carregarFoto($idUser,$caminho,$nome,$tmp_name);
+        $url = 'Location: '.URL.'backOffice/perfil/'.base64_encode($idUser);
+
+        header($url);
+    }
 }

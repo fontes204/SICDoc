@@ -76,7 +76,7 @@ switch (Session::get('type'))
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
-                        <li><a href="<?php echo URL . $att->getContoller() . '/perfil/'. base64_encode($perfil);?>"><i class="fa fa-user pull-right"></i> Perfil</a></li>
+                        <li><a href="<?php echo URL . $att->getContoller() . '/perfil/'. base64_encode($id);?>"><i class="fa fa-user pull-right"></i> Perfil</a></li>
                         <li><a href="<?php echo URL.'logout/exit_'?>"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
                     </ul>
                 </li>

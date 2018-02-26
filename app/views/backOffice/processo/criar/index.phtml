@@ -85,10 +85,10 @@
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     <div id="gender" class="btn-group" data-toggle="buttons">
                                                         <label class="btn btn-default gender-genero" val="m" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                                            <input type="radio" name="genero" value="m"> &nbsp;&nbsp; Masculino &nbsp;&nbsp;&nbsp;
+                                                            <input type="radio" name="genero" value="m"> &nbsp; Masculino &nbsp;
                                                         </label>
                                                         <label class="btn btn-primary gender-genero" val="f" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                                            <input type="radio" name="genero" value="f"> &nbsp;&nbsp; Femenino &nbsp;&nbsp;&nbsp;
+                                                            <input type="radio" name="genero" value="f"> &nbsp; Femenino &nbsp;
                                                         </label>
                                                     </div>
                                                 </div>
@@ -102,6 +102,14 @@
                                                         <option value="Divorciado">Divorciado</option>
                                                         <option value="Viúvo">Viúvo</option>
                                                     </select>
+                                                </div>
+                                            </div>
+                                            <div id="casamento">
+                                                <div class="form-group">
+                                                    <label id="lbl-nome-esposa" class="control-label col-md-3 col-sm-3 col-xs-12">Nome da Esposa</label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        <input type="text" name="nome-esposa" required="required" class="form-control col-md-7 col-xs-12">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -126,6 +134,17 @@
                                                     <label id="lbl-n-bi" class="control-label col-md-3 col-sm-3 col-xs-12" >Número do B.I da Esposa </label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                                         <input type="text" id="" name="n-bi-esposa" class="form-control col-md-7 col-xs-12">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Regime de Casamento </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        <select class="form-control text-center" name="regime-casamento" tabindex="-1">
+                                                            <option value="Separação de bens">Separação de bens</option>
+                                                            <option value="Sem convenção antenupcial">Sem convenção antenupcial</option>
+                                                            <option value="Com convenção antenupcial">Com convenção antenupcial</option>
+                                                            <option value="Comunha de bens adiquiridas">Comunha de bens adiquiridas</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -319,6 +338,20 @@
 </div>
 
 
+<?php
+
+    $imovelDao = new ImovelDao();
+    $clienteDao = new ClienteDao();
+
+    $rtnImovel = $imovelDao->listarPorId('imovel',$imovelDao->ultimoElemento('imovel')->_id);
+
+    $rtnCliente = $clienteDao->listarPorId('cliente',$rtnImovel->_id_cliente);
+
+    $d = explode(' ',$rtnImovel->_data_criacao);
+    $data = $d[0];
+
+?>
+
 <div class="modal fade callback-criar-processo" id="modal-dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -328,8 +361,39 @@
             <div class="modal-body corpo-modal">
 
             </div>
+            <div id="corpo-imprimi" class="row hide"><br><br><br><br><br><br><br><br>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_content">
+                        <table class="table table-striped table-bordered1">
+                            <tr>
+                                <th>Nome:</th>
+                                <td><?php echo $rtnCliente->_nome;?></td>
+                            </tr>
+                            <tr>
+                                <th>Nº do B.I:</th>
+                                <td><?php echo $rtnCliente->_bi;?></td>
+                            </tr>
+                            <tr>
+                                <th>Nº do Processo:</th>
+                                <td><?php echo $rtnImovel->_n_processo;?></td>
+                            </tr>
+                            <tr>
+                                <th>Tipo de Imóvel:</th>
+                                <td><?php echo $rtnImovel->_tipo_imovel;?></td>
+                            </tr>
+                            <tr>
+                                <th>Data:</th>
+                                <td><?php echo $data;?></td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <td></td>
+                            </tr>
+                        </table>
+                </div>
+            </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" onclick="window.print();"><i class="fa fa-print"></i> Imprimir </button>
+                <button id="btn-imprimir" class="btn btn-primary" ><i class="fa fa-print"></i> Imprimir </button>
                 <a href="javascript:;" id="id_fechar_modal" class="btn btn-default" data-dismiss="modal">Fechar</a>
             </div>
         </div>

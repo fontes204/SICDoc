@@ -28,7 +28,9 @@ class ProcessoController extends Controller
         $cliente->setBi(htmlentities(addslashes(filter_input(INPUT_POST,'n-bi'))));
         $cliente->setNif(htmlentities(addslashes(filter_input(INPUT_POST,'n-nif'))));
         $cliente->setEstadoCivil(htmlentities(addslashes(filter_input(INPUT_POST,'estado-civil'))));
+        $cliente->setNomeEsposa(htmlentities(addslashes(filter_input(INPUT_POST,'nome-esposa'))));
         $cliente->setNBiEsposa(htmlentities(addslashes(filter_input(INPUT_POST,'n-bi-esposa'))));
+        $cliente->setRegimeCasamento(htmlentities(addslashes(filter_input(INPUT_POST,'regime-casamento'))));
 
         $rtnCliente = $clienteDao->criarCliente($cliente);
 

@@ -49,13 +49,38 @@ class GerenciaController extends Controller
     {
        // $parametro = base64_decode($t);
         if(isset($this->view))
-            $this->view->render(SCT,'visualizar');
+            $this->view->render(GRC,'visualizar');
     }
 
-    public function perfil($t)
+    public function perfil()
     {
-        // $parametro = base64_decode($t);
-        if (isset($this->view))
-            $this->view->render(SCT, 'perfil');
+        if(isset($this->view))
+            $this->view->render(GRC,'meu_perfil');
+    }
+
+    public function perfil_()
+    {
+        if(isset($this->view))
+            $this->view->render(GRC,'perfil');
+    }
+
+    public function alterarCredenciais()
+    {
+        if(isset($this->view))
+            $this->view->render(GRC,'perfil');
+    }
+
+    public function carregarFotoPerfil()
+    {
+        $idUser = htmlentities(addslashes(filter_input(INPUT_POST,'idUser')));
+        $nome = basename($_FILES['carregar-imagem']['name']);
+        $caminho = htmlentities(addslashes(filter_input(INPUT_POST,'caminho-imagem')));
+
+        $tmp_name = $_FILES["carregar-imagem"]["tmp_name"];
+
+        $rtn = $this->carregarFoto($idUser,$caminho,$nome,$tmp_name);
+        $url = 'Location: '.URL.'gerencia/perfil/'.base64_encode($idUser);
+
+        header($url);
     }
 }

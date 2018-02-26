@@ -75,10 +75,21 @@
 <script src="<?php echo URL?>public/vendors/pdfmake/build/pdfmake.min.js"></script>
 <script src="<?php echo URL?>public/vendors/pdfmake/build/vfs_fonts.js"></script>
 
+<!-- Assets Plugin -->
+<script src="<?php echo URL?>public/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="<?php echo URL?>public/assets/plugins/bootstrap-datepicker/js/jquery.ui.datepicker-pt-BR.min.js"></script>
+<script src="<?php echo URL?>public/assets/plugins/bootstrap-datepicker/js/jquery.ui.datepicker-pt.min.js"></script>
+
 <!-- Custom Theme Scripts -->
 <script src="<?php echo URL?>public/build/js/custom.min.js"></script>
 <script src="<?php echo URL?>public/js/funcionario.js"></script>
 <script src="<?php echo URL?>public/js/processo.js"></script>
+<script src="<?php echo URL?>public/js/printObject.js"></script>
 
+<script>
+    $(document).ready(function() {
+        $(".select2").select2();
+    });
+</script>
 </body>
 </html>

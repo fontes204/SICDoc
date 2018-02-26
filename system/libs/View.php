@@ -17,11 +17,15 @@ class View  extends Controller {
 
             require 'app/views/main/header.phtml';
             require 'app/views/main/index.php';
-            if($include==1)
-                require 'app/views/'.$name.'index.phtml';
-            else {
+
+            if($include==1) {
+                require 'app/views/' . $name . 'index.phtml';
+            } elseif ($include=='meu_perfil'){
+                require 'app/views/' . 'perfil' . '/index.phtml';
+            } else {
                 require 'app/views/' . $pasta[0] . '/' . $include . '/index.phtml';
             }
+
             require 'app/views/main/footer.phtml';
         }
     }

@@ -4,18 +4,11 @@
 
 $(this).ready(function (e) {
 
- //   $('.callback-criar-processo').modal('show');
-
     URL='/sicdoc/';
     var inputFiles ='';
     $('#campo-empresa').hide();
     $('#casamento').hide();
     $('.input-empresa-txt').attr("type", "hidden");
-
-    $('input:file').change(function() {
-        var arq = this.files[0];
-        inputFiles += '&'+this.name+'-1='+arq;
-    });
 
     //criar processo
     $('.buttonFinish').click(function (e) {
@@ -32,19 +25,19 @@ $(this).ready(function (e) {
         if (dadosProcesso == null){
 
         }else {
-            dadosProcesso +=inputFiles;
             $.post($('.form-criar-processo').attr('action'), dadosProcesso, function (x) {
-                alert(x); return ;
                 if (x == 1) {
                     $('.callback-criar-processo').modal('show');
 
                     $('.corpo-modal').html('<div class="alert alert-info fade in m-b-15 text-center">'
                         + '<i class="fa fa-lock m-t-5" style="font-size: large"></i>'
-                        + ' O processo foi  guardado com sucesso.</div>');
-
+                        + ' O processo foi  guardado com sucesso.<br/> '
+                        + 'Clique em "Imprimir" para gerar o comprovativo.</div>');
+                    $('#btn-imprimir').show();
                     $('.form-criar-processo')[0].reset();
 
                 } else {
+                    $('#btn-imprimir').hide();
                     $('.callback-criar-processo').modal('show');
 
                     $('.corpo-modal').html('<div class="alert alert-danger fade in m-b-15 text-center">'
@@ -80,10 +73,12 @@ $(this).ready(function (e) {
            $('#id-estado-civil').html(f);
            $('#lbl-n-bi').html('Número do B.I do Esposo');
            $('#lbl-carr-bi').html('Carregar B.I do Esposo');
+           $('#lbl-nome-esposa').html('Nome do Esposo');
        } else {
            $('#id-estado-civil').html(m);
            $('#lbl-n-bi').html('Número do B.I da Esposa');
            $('#lbl-carr-bi').html('Carregar B.I da Esposa');
+           $('#lbl-nome-esposa').html('Nome da Esposa');
        }
    });
 
@@ -113,4 +108,13 @@ $(this).ready(function (e) {
    $('.target-dir').click(function () {
       $('#tipo-doc').val($(this).attr('tipo'));
    });
+
+    $( "#btn-imprimir" ).click(function() {
+        $("#corpo-imprimi").printObject({
+            header: '<img src="/sicdoc/public/img/Polvia1.jpg" /><h2> POLVIA </h2>',
+            header_style: 'color: green;',
+            footer: '',
+            footer_style: "color: blue; font-size: 14px;"
+        });
+    });
 });

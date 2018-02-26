@@ -29,4 +29,22 @@ class Controller extends App {
         }
     }
 
+    public function carregarFoto($idUser,$caminho,$nome,$tmp_name)
+    {
+        $fileDao  = new fileUploadDao();
+        $file = new fileUpload();
+
+        $file->setId($idUser);
+        $file->setCaminho($caminho);
+        $file->setNome($nome);
+
+        $rtn = $fileDao->guardarDocumento($file,$tmp_name);
+
+        if($rtn['rtn'] == 1) {
+            $fileDao->alterarUmCampo('funcionario','_foto',$nome,'_id',$idUser);
+            return $rtn;
+        }else{
+            return ;//$rtn;
+        }
+    }
 }

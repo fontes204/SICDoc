@@ -38,25 +38,25 @@
                                     <li><a href="<?php echo URL.$att->getContoller().'/listar';?>">Todos Processos</a></li>
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-file"></i> Factura <span class="fa fa-chevron-down"></span></a>
+                           <!-- <li><a><i class="fa fa-file"></i> Factura <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="general_elements.html">Nova Factura</a></li>
-                                    <li><a href="<?php echo URL.$att->getContoller().'/filtrar/'.base64_encode('factura');?>">Procurar Factura</a></li>
+                                    <li><a href="<?php /*echo URL.$att->getContoller().'/filtrar/'.base64_encode('factura');*/?>">Procurar Factura</a></li>
                                     <li><a href="typography.html">Factura Pro-forma</a></li>
                                 </ul>
-                            </li>
+                            </li>-->
                             <li><a><i class="fa fa-group"></i> Gerir Funcionários <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="<?php echo URL.$att->getContoller().'/novo/'.base64_encode('funcionario');?>">Novo Funcionário</a></li>
                                     <li><a href="<?php echo URL.$att->getContoller().'/filtrar/'.base64_encode('funcionario');?>">Listar Todos Funcionários</a></li>
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-group"></i> Gerir Emolumentos <span class="fa fa-chevron-down"></span></a>
+                           <!-- <li><a><i class="fa fa-group"></i> Gerir Emolumentos <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="general_elements.html">Novo Emolumento</a></li>
                                     <li><a href="typography.html">Listar Todos Emolumentos</a></li>
                                 </ul>
-                            </li>
+                            </li>-->
                         </ul>
                     </div>
 

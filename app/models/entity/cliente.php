@@ -14,7 +14,9 @@ class Cliente extends Atributo
     protected $_estado_civil;
     protected $_bi;
     protected $_nif;
+    protected $_nome_esposa;
     protected $_n_bi_esposa;
+    protected $_regime_casamento;
 
     /**
      * @return mixed
@@ -99,6 +101,22 @@ class Cliente extends Atributo
     /**
      * @return mixed
      */
+    public function getNomeEsposa()
+    {
+        return $this->_nome_esposa;
+    }
+
+    /**
+     * @param mixed $nome_esposa
+     */
+    public function setNomeEsposa($nome_esposa)
+    {
+        $this->_nome_esposa = $nome_esposa;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getEstadoCivil()
     {
         return $this->_estado_civil;
@@ -126,5 +144,21 @@ class Cliente extends Atributo
     public function setNBiEsposa($n_bi_esposa)
     {
         $this->_n_bi_esposa = $n_bi_esposa;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRegimeCasamento()
+    {
+        return $this->_regime_casamento;
+    }
+
+    /**
+     * @param mixed $regime_casamento
+     */
+    public function setRegimeCasamento($regime_casamento)
+    {
+        $this->_regime_casamento = $regime_casamento;
     }
 }
